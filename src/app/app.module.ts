@@ -2,13 +2,23 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
+import { FormvalidationComponent } from './formvalidation/formvalidation.component';
+import { ReactiveformComponent } from './reactiveform/reactiveform.component';
+
+;
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FormvalidationComponent,
+    ReactiveformComponent,
+   
+    
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

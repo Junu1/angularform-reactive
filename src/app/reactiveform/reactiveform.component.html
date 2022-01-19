@@ -1,0 +1,55 @@
+<form [formGroup]="contactForm" (ngSubmit)="onSave()">
+
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name"
+            formControlName="name">
+        <div *ngIf="f['name'].touched && f['name'].errors" class="alert alert-danger">
+            <div *ngIf="f['name'].errors['required']">Name is required</div>
+            <div *ngIf="f['name'].errors['minlength']">Minimum 3 characters required</div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email"
+                formControlName="email">
+            <div *ngIf="f['email'].touched && f['email'].errors" class="alert alert-danger">
+                <div *ngIf="f['email'].errors['required']">Email is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="mobilenumber">Mobile Number</label>
+            <input type="text" class="form-control" id="email" name="mobilenumber"
+                placeholder="Enter your mobile number" formControlName="mobilenumber">
+            <div *ngIf="f['mobilenumber'].touched && f['mobilenumber'].errors" class="alert alert-danger">
+                <div *ngIf="f['mobilenumber'].errors['required']">Mobile number is required</div>
+                <div *ngIf="f['mobilenumber'].errors['minlength']">Minimum 10 characters required</div>
+                <div *ngIf="f['mobilenumber'].errors['maxlength']">Maximum 10 characters required</div>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Country
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Nepal</a>
+                <a class="dropdown-item" href="#">USA</a>
+                <a class="dropdown-item" href="#">Canada</a>
+                <a class="dropdown-item" href="#">Australia</a>
+                <div *ngIf="f['country'].touched && f['country'].errors" class="alert alert-danger">
+                    <div *ngIf="f['country'].errors['required']">Country is required</div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <input type="text" class="form-control" id="message" name="message" placeholder="Enter message"
+                    formControlName="email">
+                <div *ngIf="f['message'].touched && f['message'].errors" class="alert alert-danger">
+                    <div *ngIf="f['message'].errors['required']">Message is required</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 10px;">
+                <button type="submit" class="btn btn-primary" [disabled]="contactForm.invalid">Submit</button>
+            </div>
