@@ -8,6 +8,12 @@ import { Country } from '../country';
   styleUrls: ['./reactiveform.component.css']
 })
 export class ReactiveformComponent implements OnInit {
+  countries: Country[] = [
+    new Country(1, 'Nepal'),
+    new Country(2, 'USA'),
+    new Country(3, 'Canada'),
+    new Country(4, 'Australia')
+  ];
   contactForm: FormGroup = this.fb.group({
     name: [
       'Junu Danuwar',
@@ -15,20 +21,19 @@ export class ReactiveformComponent implements OnInit {
       Validators.minLength(3)
     ],
     email: [
-      Validators.required
+      Validators.required,
+      Validators.email
     ],
     mobilenumber: [
       Validators.required,
       Validators.minLength(10),
       Validators.maxLength(10)
     ],
-    countries: Country[] = [
-      new Country(1, 'Nepal'),
-      new Country(2, 'USA'),
-      new Country(3, 'Canada'),
-      new Country(4, 'Australia')
+    countryId:[
+      '',
+      Validators.required
+
     ],
-    
     message: [
       Validators.required
     ]
@@ -40,7 +45,6 @@ export class ReactiveformComponent implements OnInit {
   }
   
   onSave() {
-    console.log("Form submitted !!")
     console.log(this.contactForm.value);
   }
 
